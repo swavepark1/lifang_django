@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price_format', 'styled_stock' )
+    list_display = ('namecompany', 'brandcompany', 'projectcompany', 'registered_dttm' )
     
     list_filter = ('stock',)
     
@@ -15,7 +15,6 @@ class ProductAdmin(admin.ModelAdmin):
       price = intcomma(obj.price)
       return f'{price}원'
 
-    
     
     def styled_stock(self,obj):
         
@@ -28,7 +27,7 @@ class ProductAdmin(admin.ModelAdmin):
     
     def changelist_view(self, request, extra_context=None):
     # 우리가 원하는 동작
-        extra_context = { 'title' : '상품 목록' }
+        extra_context = { 'title' : '기업 목록' }
         return super().changelist_view(request, extra_context)
     
     def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
