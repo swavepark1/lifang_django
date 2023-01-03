@@ -6,8 +6,8 @@ from django.db import models
 
 class Product(models.Model):
     
-    name = models.CharField(max_length=80,
-                                verbose_name='상품명1')
+    name = models.CharField(max_length=256,
+                                verbose_name='상품명')
     
     price = models.IntegerField(verbose_name='상품가격')
     
