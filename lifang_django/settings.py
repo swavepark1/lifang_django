@@ -66,11 +66,11 @@ BATON = {
     {
         'type': 'app',
         'name': 'product',
-        'label': '기업목록3',
+        'label': '기업목록',
         'models': (
             {
                 'name': 'product',
-                'label': '기업목록3'
+                'label': '기업목록'
             },
    
         )
