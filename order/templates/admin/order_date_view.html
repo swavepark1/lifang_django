@@ -1,0 +1,86 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+    &rsaquo; <a href="{% url 'admin:app_list' app_label='order' %}">주문</a>
+    &rsaquo; 주문
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div id="content-main">
+   
+    <div class = "row mt-5">
+        <div class="col-12 p-5">
+
+             <a class="btn btn-primary mb-5" href="/admin/order/order">돌아가기</a>
+            
+             <h3>최근 일주일 주문</h3>
+
+             <table class ="table table-light">
+        
+                <thead class ="thead-light">
+                
+                    <tr>
+                        <th scope="col">사용자</th>
+                        <th scope="col">상품</th>
+                        <th scope="col">상태</th>
+                    </tr>
+                
+                
+                </thead>    
+             
+                <tbody class ="text-dark">
+                    {% for d in week_data %}
+                    <tr>
+                        <th> {{ d.lifanguser }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.status }}</th>
+                    </tr>
+                    {% endfor %}
+                
+                </tbody>    
+              
+             </table>
+
+             <h3>과거 주문</h3>
+             
+             <table class ="table table-light">
+        
+                <thead class ="thead-light">
+                
+                    <tr>
+                        <th scope="col">사용자</th>
+                        <th scope="col">상품</th>
+                        <th scope="col">상태</th>
+                    </tr>
+                
+                
+                </thead>    
+             
+                <tbody class ="text-dark">
+                    {% for d in data %}
+                    <tr>
+                        <th> {{ d.lifanguser }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.status }}</th>
+                    </tr>
+                    {% endfor %}
+                
+                </tbody>    
+              
+             </table>
+    
+            
+        </div>
+       
+    </div>
+    
+
+</div>
+
+{% endblock %}
+
